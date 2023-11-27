@@ -99,7 +99,7 @@ public class Main {
             i++;
         }
     }
-    public static void runMemoryExperimentGreedy(SetCoverInput[] datasets, FileWriter writer) {
+    public static void runMemoryExperimentGreedy(SetCoverInput[] datasets, FileWriter writer) throws IOException {
         int i = 0;
         for (SetCoverInput dataset : datasets) {
             switch (i) {
@@ -124,8 +124,8 @@ public class Main {
             long end = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
             writer.write("cost: " + res.cost + "\n");
             System.out.println("cost: " + res.cost);
-            writer.write("Memory used for greedy algorithm on dataset of size " + dataset.universe.size() + ": " + (end - start) / 1024 + "KB\n");
-            System.out.println("Memory used for greedy algorithm on dataset of size " + dataset.universe.size() + ": " + (end - start) / 1024 + "KB");
+            writer.write("Memory used for greedy algorithm on dataset of size " + dataset.universe.size() + ": " + (double) (end - start) / 1024 + "KB\n");
+            System.out.println("Memory used for greedy algorithm on dataset of size " + dataset.universe.size() + ": " + (double) (end - start) / 1024 + "KB");
             i++;
         }
     }
@@ -155,8 +155,8 @@ public class Main {
             long end = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
             System.out.println("cost: " + res.cost);
             writer.write("cost: " + res.cost + "\n");
-            System.out.println("Memory used for branch and bound algorithm on dataset of size " + dataset.universe.size() + ": " + (end - start) / 1024 + "KB");
-            writer.write("Memory used for branch and bound algorithm on dataset of size " + dataset.universe.size() + ": " + (end - start) / 1024 + "KB\n");
+            System.out.println("Memory used for branch and bound algorithm on dataset of size " + dataset.universe.size() + ": " + (double) (end - start) / 1024 + "KB");
+            writer.write("Memory used for branch and bound algorithm on dataset of size " + dataset.universe.size() + ": " + (double) (end - start) / 1024 + "KB\n");
             i++;
         }
     }

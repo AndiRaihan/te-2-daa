@@ -75,6 +75,19 @@ def parse_file_into_data(file_path):
         costs = list(map(int, f.readline().split()))
         return {'universe': set(range(1, n+1)), 'subsets': subsets, 'costs': costs}
 
+def assert_data_valid(data):
+    """Assert that the data is valid.
+
+    Args:
+        data (dict): The data to be asserted.
+    """
+    assert len(data['universe']) > 0, "Universe must not be empty"
+    assert len(data['subsets']) > 0, "Subsets must not be empty"
+    assert len(data['costs']) > 0, "Costs must not be empty"
+    assert len(data['subsets']) == len(data['costs']), "Number of subsets and number of costs must be the same"
+    # Make sure the union of all the subsets is the universe
+    assert data['universe'] == set().union(*data['subsets']), "The union of all the subsets must be the universe"
+
     
 if __name__ == "__main__":
     small_num = 20
@@ -83,6 +96,9 @@ if __name__ == "__main__":
     data_small = generate_data(small_num)
     data_medium = generate_data(medium_num)
     data_large = generate_data(large_num)
+    assert_data_valid(data_small)
+    assert_data_valid(data_medium)
+    assert_data_valid(data_large)
     write_into_file(data_small, 'data/small.txt')
     write_into_file(data_medium, 'data/medium.txt')
     write_into_file(data_large, 'data/large.txt')
