@@ -127,6 +127,9 @@ public class Main {
             writer.write("Memory used for greedy algorithm on dataset of size " + dataset.universe.size() + ": " + (double) (end - start) / 1024 + "KB\n");
             System.out.println("Memory used for greedy algorithm on dataset of size " + dataset.universe.size() + ": " + (double) (end - start) / 1024 + "KB");
             i++;
+            gc();
+            gc();
+            gc();
         }
     }
 
@@ -158,6 +161,9 @@ public class Main {
             System.out.println("Memory used for branch and bound algorithm on dataset of size " + dataset.universe.size() + ": " + (double) (end - start) / 1024 + "KB");
             writer.write("Memory used for branch and bound algorithm on dataset of size " + dataset.universe.size() + ": " + (double) (end - start) / 1024 + "KB\n");
             i++;
+            gc();
+            gc();
+            gc();
         }
     }
 
@@ -168,7 +174,7 @@ public class Main {
                 runTimeExperimentGreedy(datasets, writer);
                 runMemoryExperimentGreedy(datasets, writer);
                 runTimeExperimentBranchAndBound(datasets, writer);
-                runTimeExperimentBranchAndBound(datasets, writer);
+                runMemoryExperimentBranchAndBound(datasets, writer);
             } catch (IOException e) {
                 e.printStackTrace();
             }

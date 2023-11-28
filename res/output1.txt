@@ -1,36 +1,36 @@
 Running greedy algorithm on small dataset...
 cost: 232
-Time taken for greedy algorithm on dataset of size 20: 0ms
+Time taken for greedy algorithm on dataset of size 20: 1ms
 Running greedy algorithm on medium dataset...
 cost: 330
-Time taken for greedy algorithm on dataset of size 200: 0ms
+Time taken for greedy algorithm on dataset of size 200: 1ms
 Running greedy algorithm on large dataset...
 cost: 490
-Time taken for greedy algorithm on dataset of size 2000: 31ms
+Time taken for greedy algorithm on dataset of size 2000: 13ms
 Running greedy algorithm on small dataset...
 cost: 232
-Memory used for greedy algorithm on dataset of size 20: 40.984375KB
+Memory used for greedy algorithm on dataset of size 20: 107.921875KB
 Running greedy algorithm on medium dataset...
 cost: 330
-Memory used for greedy algorithm on dataset of size 200: 552.921875KB
+Memory used for greedy algorithm on dataset of size 200: 539.90625KB
 Running greedy algorithm on large dataset...
 cost: 490
-Memory used for greedy algorithm on dataset of size 2000: 656.75KB
+Memory used for greedy algorithm on dataset of size 2000: 3909.8125KB
 Running branch and bound algorithm on small dataset...
 cost: 157
-Time taken for branch and bound algorithm on dataset of size 20: 29ms
+Time taken for branch and bound algorithm on dataset of size 20: 12ms
 Running branch and bound algorithm on medium dataset...
 cost: 324
-Time taken for branch and bound algorithm on dataset of size 200: 109ms
+Time taken for branch and bound algorithm on dataset of size 200: 98ms
 Running branch and bound algorithm on large dataset...
 cost: 462
-Time taken for branch and bound algorithm on dataset of size 2000: 136719ms
+Time taken for branch and bound algorithm on dataset of size 2000: 137251ms
 Running branch and bound algorithm on small dataset...
 cost: 157
-Memory used for branch and bound algorithm on dataset of size 20: 1389.6015625KB
+Memory used for branch and bound algorithm on dataset of size 20: 1391.3359375KB
 Running branch and bound algorithm on medium dataset...
 cost: 324
-Memory used for branch and bound algorithm on dataset of size 200: 61263.90625KB
+Memory used for branch and bound algorithm on dataset of size 200: 61305.28125KB
 Running branch and bound algorithm on large dataset...
 cost: 462
 Memory used for branch and bound algorithm on dataset of size 2000: 133164.171875KB

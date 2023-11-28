@@ -20,12 +20,12 @@ def generate_data(n: int):
                 'costs': [1, 2, 3, ...] # costs[i] is the cost of subset i
             }
     """
-    m = random.randint(small_num, small_num*3)
+    m = random.randint(10, 40)
     universe = list(range(1, n+1))
     subsets = []
     costs = []
     for _ in range(m):
-        subset_size = random.randint(3, n//2)
+        subset_size = random.randint(n//10, n//2)
         subset_elements = random.sample(universe, subset_size)
         subset_cost = random.randint(1, 100)
         subsets.append(set(subset_elements))
