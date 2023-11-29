@@ -21,7 +21,7 @@ def generate_data(n: int):
             }
     """
     if (n >= 2000):
-        m = random.randint(140, 280)
+        m = random.randint(160, 320)
         subset_size_min = n // m // 2
         subset_size_max = n // m
     elif (n >= 200):
@@ -29,7 +29,7 @@ def generate_data(n: int):
         subset_size_min = n // m
         subset_size_max = n // m * 2
     else:
-        m = random.randint(5, 10)
+        m = random.randint(2, 5)
         subset_size_min = n // m * 2
         subset_size_max = n // m * 4
 
