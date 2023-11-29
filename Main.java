@@ -62,13 +62,13 @@ public class Main {
                     System.out.println("Running greedy algorithm on large dataset...");
                     break;
             }
-            long start = System.currentTimeMillis();
+            long start = System.nanoTime();
             ResultGreedy res = Greedy.greedy(dataset.universe, dataset.subsets, dataset.costs);
-            long end = System.currentTimeMillis();
+            long end = System.nanoTime();
             writer.write("cost: " + res.cost + "\n");
             System.out.println("cost: " + res.cost);
-            writer.write("Time taken for greedy algorithm on dataset of size " + dataset.universe.size() + ": " + (end - start) + "ms\n");
-            System.out.println("Time taken for greedy algorithm on dataset of size " + dataset.universe.size() + ": " + (end - start) + "ms");
+            writer.write("Time taken for greedy algorithm on dataset of size " + dataset.universe.size() + ": " + (double) (end - start) / Math.pow(10, 6) + "ms\n");
+            System.out.println("Time taken for greedy algorithm on dataset of size " + dataset.universe.size() + ": " + (double) (end - start) / Math.pow(10, 6) + "ms");
             i++;
         }
     }
@@ -89,13 +89,13 @@ public class Main {
                     System.out.println("Running branch and bound algorithm on large dataset...");
                     break;
             }
-            long start = System.currentTimeMillis();
+            long start = System.nanoTime();
             Result res = BranchAndBound.BB(dataset.universe, dataset.subsets, dataset.costs);
-            long end = System.currentTimeMillis();
+            long end = System.nanoTime();
             writer.write("cost: " + res.cost + "\n");
             System.out.println("cost: " + res.cost);
-            writer.write("Time taken for branch and bound algorithm on dataset of size " + dataset.universe.size() + ": " + (end - start) + "ms\n");
-            System.out.println("Time taken for branch and bound algorithm on dataset of size " + dataset.universe.size() + ": " + (end - start) + "ms");
+            writer.write("Time taken for branch and bound algorithm on dataset of size " + dataset.universe.size() + ": " + (double) (end - start) / Math.pow(10, 6) + "ms\n");
+            System.out.println("Time taken for branch and bound algorithm on dataset of size " + dataset.universe.size() + ": " + (double) (end - start) / Math.pow(10, 6) + "ms");
             i++;
         }
     }

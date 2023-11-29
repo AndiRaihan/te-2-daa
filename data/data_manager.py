@@ -20,17 +20,47 @@ def generate_data(n: int):
                 'costs': [1, 2, 3, ...] # costs[i] is the cost of subset i
             }
     """
-    m = random.randint(10, 40)
-    universe = list(range(1, n+1))
+    if (n >= 2000):
+        m = random.randint(140, 280)
+        subset_size_min = n // m // 2
+        subset_size_max = n // m
+    elif (n >= 200):
+        m = random.randint(40, 80)
+        subset_size_min = n // m
+        subset_size_max = n // m * 2
+    else:
+        m = random.randint(5, 10)
+        subset_size_min = n // m * 2
+        subset_size_max = n // m * 4
+
+    universe = list(range(1, n + 1))
     subsets = []
     costs = []
-    for _ in range(m):
-        subset_size = random.randint(n//10, n//2)
+    for i in range(m):
+        subset_size = random.randint(subset_size_min, subset_size_max)
+        if (subset_size > len(universe)):
+            subset_size = len(universe)
         subset_elements = random.sample(universe, subset_size)
+        subset_cost = random.randint(1, subset_size * 5)
+        subsets.append(set(subset_elements))
+        costs.append(subset_cost)
+    # Ensure that the union of subsets covers the entire universe
+    covered_elements = set.union(*subsets)
+    uncovered_elements = set(universe) - covered_elements
+
+
+    # Add additional subsets to cover remaining elements
+    while uncovered_elements:
+        uncovered_elements = list(uncovered_elements)
+        subset_size = random.randint(subset_size_min, subset_size_max)
+        subset_elements = random.sample(uncovered_elements, min(subset_size, len(uncovered_elements)))
         subset_cost = random.randint(1, 100)
         subsets.append(set(subset_elements))
         costs.append(subset_cost)
+        uncovered_elements = set(uncovered_elements)
+        uncovered_elements -= set(subset_elements)
     return {'universe': set(universe), 'subsets': subsets, 'costs': costs}
+
 
 def write_into_file(data, file_path):
     """Write the generated data into a file.
@@ -73,7 +103,8 @@ def parse_file_into_data(file_path):
             subset = set(map(int, f.readline().split()))
             subsets.append(subset)
         costs = list(map(int, f.readline().split()))
-        return {'universe': set(range(1, n+1)), 'subsets': subsets, 'costs': costs}
+        return {'universe': set(range(1, n + 1)), 'subsets': subsets, 'costs': costs}
+
 
 def assert_data_valid(data):
     """Assert that the data is valid.
@@ -88,22 +119,43 @@ def assert_data_valid(data):
     # Make sure the union of all the subsets is the universe
     assert data['universe'] == set().union(*data['subsets']), "The union of all the subsets must be the universe"
 
-    
+
 if __name__ == "__main__":
     small_num = 20
     medium_num = 200
     large_num = 2000
-    data_small = generate_data(small_num)
-    data_medium = generate_data(medium_num)
-    data_large = generate_data(large_num)
-    assert_data_valid(data_small)
-    assert_data_valid(data_medium)
-    assert_data_valid(data_large)
+    while True:
+        try:
+            data_small = generate_data(small_num)
+            assert_data_valid(data_small)
+            print("finished generating small data")
+            break
+        except AssertionError:
+            pass
+
+    while True:
+        try:
+            data_medium = generate_data(medium_num)
+            assert_data_valid(data_medium)
+            print("finished generating medium data")
+            break
+        except AssertionError:
+            pass
+
+    while True:
+        try:
+            data_large = generate_data(large_num)
+            assert_data_valid(data_large)
+            print("finished generating large data")
+            break
+        except AssertionError:
+            pass
     write_into_file(data_small, 'data/small.txt')
     write_into_file(data_medium, 'data/medium.txt')
     write_into_file(data_large, 'data/large.txt')
-    
+
+    print("Finished generating data.")
+
     assert parse_file_into_data('data/small.txt') == data_small, "Generated data and parsed data are not the same"
     assert parse_file_into_data('data/medium.txt') == data_medium, "Generated data and parsed data are not the same"
     assert parse_file_into_data('data/large.txt') == data_large, "Generated data and parsed data are not the same"
-    
