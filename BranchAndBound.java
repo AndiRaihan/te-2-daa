@@ -28,7 +28,7 @@ public class BranchAndBound {
 
     public static Result BB(Set<Integer> universe, List<Set<Integer>> sets, int[] costs) {
         int[] subset = new int[sets.size()];
-        int[] bestSubset = new int[sets.size()];
+        int[] bestSubset = Arrays.copyOf(subset, subset.length);
         Arrays.fill(subset, 1);
         subset[0] = 0;
         int bestCost = Arrays.stream(costs).sum();
