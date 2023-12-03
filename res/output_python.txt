@@ -1,0 +1,36 @@
+======================================== Eksperimentasi Greedy data kecil ========================================
+cost= 40$
+time: 0.0299 ms
+======================================== Eksperimentasi Greedy data medium ========================================
+cost= 1349$
+time: 2.8922 ms
+======================================== Eksperimentasi Greedy data besar ========================================
+cost= 13330$
+time: 562.2772 ms
+======================================== Eksperimentasi Branch and Bound data kecil ========================================
+cost= 37$
+time: 0.0466 ms
+======================================== Eksperimentasi Branch and Bound data medium ========================================
+cost= 1321$
+time: 923.5753 ms
+======================================== Eksperimentasi Branch and Bound data besar ========================================
+cost= 13305$
+time: 110153.1662 ms
+======================================== Eksperimentasi Greedy data kecil ========================================
+Memory usage: 4.0390625KB
+cost= 40$
+======================================== Eksperimentasi Greedy data medium ========================================
+Memory usage: 20.3828125KB
+cost= 1349$
+======================================== Eksperimentasi Greedy data besar ========================================
+Memory usage: 223.1953125KB
+cost= 13330$
+======================================== Eksperimentasi Branch and Bound data kecil ========================================
+Memory usage: 4.1953125KB
+cost= 37$
+======================================== Eksperimentasi Branch and Bound data medium ========================================
+Memory usage: 21.3203125KB
+cost= 1321$
+======================================== Eksperimentasi Branch and Bound data besar ========================================
+Memory usage: 165.6640625KB
+cost= 13305$

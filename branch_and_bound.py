@@ -32,8 +32,6 @@ def BB(universe, sets, costs):
     i = 1
 
     while i > 0:
-        print("i = ", i)
-        print("subset = ", subset)
 
         if i < len(sets):
             cost, tSet = 0, set()  # t for temporary
